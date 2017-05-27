@@ -1,0 +1,7 @@
+"0","(RSentiment::calculate_score(c(""This package is doing well"",""This is an average package"",""Package is not working well"")))"
+"1","[1]"
+"1","  1"
+"1","  0"
+"1"," -1"
+"1","
+"

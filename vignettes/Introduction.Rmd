@@ -1,0 +1,64 @@
+---
+title: "Introduction to RSentiment"
+author: "Subhasree Bose"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to RSentiment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Sentiment analysis strategy on qualitative data can give valuable information and insights. Qualitative data are basically unstructured one, After applying sentiment analysis strategy, the quantitave feedback can be treated as structured one.Measuring the positivity or negativity of the quantitative feedback, qualitative data can be classified into vaious categories like "Positve", "Negative","Very Positive" and "Very Negative".This has been focussed in the package "RSentiment".
+This package will ease mining opinions or analysing positive or negative sentiments of any subjective information in any source material in English.It uses text analysis, natural language processing, stemming etc and produces results. While computing score of any sentence, it takes into account sarcasms, negations, various degrees of adjectives and also emoticons.
+
+## Methods
+
+There are currently 3 methods in the package:
+```
+calculate_score: calculates score of a sentence or a collection of sentences as text.
+
+calculate_sentiment: classifies a sentence or a text into a sentiment category.
+
+calculate_total_presence_sentiment: calculates total number of sentences in each sentiment category.
+```
+
+## Score Range
+
+calculate_score gives score as output which can be either 0 or greater than 0 or less than 0.
+```
+Note: 99 is used to indicate the score of sentences which are sarcasm.
+```
+## Sentiment Categories
+
+There are following 6 sentiments in which a sentence or a text is classified into by the method calculate_sentiment
+
+```
+
+Very Negative
+Negative
+Neutral
+Positive
+Very Positive
+Sarcasm
+
+```
+
+
+
+
+
+
+## More Examples
+
+You can check score of sentence like
+calculate_score(c("This package is doing well","This is an average package","Package is not working well"))
+
+```{r, echo=FALSE, results='asis'}
+
+
+(RSentiment::calculate_score(c("This package is doing well","This is an average package","Package is not working well")))
+
+```
+
+
+

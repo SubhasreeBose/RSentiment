@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: RSentiment\nType: Package\nTitle: Analyse Sentiment of English Sentences\nVersion: 2.0\nImports:\n    plyr,stringr\nDate: 2016-04-20\nAuthor: Subhasree Bose <subhasree10.7@gmail.com> with contributons from Saptarsi Goswami.\nMaintainer: Subhasree Bose <subhasree10.7@gmail.com>\nDescription: Analyses sentiment of a sentence in English and assigns score to it. It can classify sentences to the following categories of sentiments:- Positive, Negative, very Positive, very negative, \n              Neutral or Sarcasm. For a vector of sentences, it counts the number of sentences in each\n              category of sentiment.In calculating the score, negation and various degrees\n              of adjectives are taken into consideration. It deals only with English sentences.\nDepends: R (>= 2.1.0)  \nLicense: GPL-2\nLazyData: true\nRoxygenNote: 5.0.1\nSuggests: knitr,\n    rmarkdown,\n    testthat\nVignetteBuilder: knitr\n",
+    "created" : 1462299649226.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "871627409",
+    "id" : "6745078C",
+    "lastKnownWriteTime" : 1465106602,
+    "last_content_update" : 1465106602,
+    "path" : "~/Desktop/RSentiment_linux/RSentiment/RSentiment/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

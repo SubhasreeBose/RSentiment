@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Introduction to RSentiment\"\nauthor: \"Subhasree Bose\"\ndate: \"`r Sys.Date()`\"\noutput: rmarkdown::html_vignette\nvignette: >\n  %\\VignetteIndexEntry{Introduction to RSentiment}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}\n---\nSentiment analysis strategy on qualitative data can give valuable information and insights. Qualitative data are basically unstructured one, After applying sentiment analysis strategy, the quantitave feedback can be treated as structured one.Measuring the positivity or negativity of the quantitative feedback, qualitative data can be classified into vaious categories like \"Positve\", \"Negative\",\"Very Positive\" and \"Very Negative\".This has been focussed in the package \"RSentiment\".\nThis package will ease mining opinions or analysing positive or negative sentiments of any subjective information in any source material in English.It uses text analysis, natural language processing, stemming etc and produces results. While computing score of any sentence, it takes into account sarcasms, negations, various degrees of adjectives and also emoticons.\n\n## Methods\n\nThere are currently 6 methods in the package:\n```\ncalculate_score: calculates score of a sentence or a collection of sentences as text.\n\ncalculate_sentiment: classifies a sentence or a text into a sentiment category.\n\ncalculate_total_presence_sentiment: calculates total number of sentences in each sentiment category.\n\ncalculate_custom_score: calculates score of a sentence or a collection of sentences on basis of dictionary of positive and negative words supplied by user\n\nCalculate_custom_sentiment:classifies a sentence or a text into a sentiment category on basis of dictionary of positive and negative words supplied by user\n\ncalculate_custom_total_presence_sentiment:alculates total number of sentences in each sentiment category on basis of dictionary of positive and negative words supplied by user\n```\n\n## Score Range\n\ncalculate_score gives score as output which can be either 0 or greater than 0 or less than 0.\n```\nNote: 99 is used to indicate the score of sentences which are sarcasm.\n```\n## Sentiment Categories\n\nThere are following 6 sentiments in which a sentence or a text is classified into by the method calculate_sentiment\n\n```\n\nVery Negative\nNegative\nNeutral\nPositive\nVery Positive\nSarcasm\n\n```\n\n\n\n\n\n\n## More Examples\n\nYou can check score of sentence like\ncalculate_score(c(\"This package is doing well\",\"This is an average package\",\"Package is not working well\"))\n\n```{r, echo=FALSE, results='asis'}\n\n\n(RSentiment::calculate_score(c(\"This package is doing well\",\"This is an average package\",\"Package is not working well\")))\n\n```\n\n\n\n",
+    "created" : 1500724746488.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2861384803",
+    "id" : "4467D209",
+    "lastKnownWriteTime" : 1500724909,
+    "last_content_update" : 1500724909583,
+    "path" : "E:/R/My Packages/RSentiment/RSentiment/vignettes/Introduction.Rmd",
+    "project_path" : "vignettes/Introduction.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

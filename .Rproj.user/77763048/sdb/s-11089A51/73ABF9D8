@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(\"RSentiment\")\ntweets <- read.csv(\"E:/rs12.csv\", header=TRUE)\ncalculate_sentiment(tweets$text[1:100])\n",
+    "created" : 1500660452450.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1612201245",
+    "id" : "73ABF9D8",
+    "lastKnownWriteTime" : 1500657042,
+    "last_content_update" : 1500657042,
+    "path" : "C:/Users/Subhasree/Downloads/sen.r",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

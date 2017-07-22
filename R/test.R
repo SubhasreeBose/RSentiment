@@ -19,11 +19,14 @@
 
 
 calculate_score <- function(text) {
+  
   text <- as.character(text)
-  text <-
-    unlist(lapply(text, function(x) {
-      stringr::str_split(x, "\n")
-    }))
+ 
+  
+  #split the text by newline
+  # text <-unlist(lapply(text, function(x) {
+  #     stringr::str_split(x, "\n")
+  #   }))
   
   check_verb <- function(r2, words, df)
   {
@@ -251,8 +254,7 @@ calculate_score <- function(text) {
     sent_token_annotator <- openNLP::Maxent_Sent_Token_Annotator()
     word_token_annotator <- openNLP::Maxent_Word_Token_Annotator()
     pos_tag_annotator <-  openNLP::Maxent_POS_Tag_Annotator()
-    y1 <-
-      NLP::annotate(x, list(sent_token_annotator, word_token_annotator))
+    y1 <-NLP::annotate(x, list(sent_token_annotator, word_token_annotator))
     y2 <- NLP::annotate(x, pos_tag_annotator, y1)
     
     y2w <- subset(y2, type == "word")
@@ -288,8 +290,13 @@ calculate_score <- function(text) {
       plyr::laply(sentences, function(sentence,
                                       negative_words,
                                       positive_words) {
+        
+
+        
         if (is.na(sentence))
-          return(-1)
+          return(NA)
+        
+        #checking emoticons
         if (regexpr("[?]", sentence) > 0)
           return(99)
         if (grepl(":-(", sentence, fixed = TRUE))
@@ -306,8 +313,8 @@ calculate_score <- function(text) {
         else
           sentence <- paste(sentence, "", sep = "")
         
-        sentence <- iconv(sentence, "WINDOWS-1252", "UTF-8")
         
+       sentence <- iconv(sentence, "WINDOWS-1252", "UTF-8")
         
         #remove unnecessary characters and split up by word
         trim <- function (x)
@@ -317,23 +324,28 @@ calculate_score <- function(text) {
         sentence <- gsub("n't", " not", sentence)
         
         sentence <- trim(sentence)
-        sentence <- gsub('[[:punct:]]', '', sentence)
-        sentence <- gsub('[[:cntrl:]]', '', sentence)
-        sentence <-
-          gsub("[[:punct:]]",
-               "",
-               iconv(sentence, to = "ASCII//TRANSLIT"))
+        
+        sentence <- gsub('[[:punct:]]', '', iconv(sentence, to = "ASCII//TRANSLIT"))
+        sentence <- gsub('[[:cntrl:]]', '', iconv(sentence, to = "ASCII//TRANSLIT"))
+        
+        sentence<-stringr::str_trim(iconv(sentence, to = "ASCII//TRANSLIT"))
+        
+        #sentence<-gsub("[[:punct:]]","",iconv(sentence, to = "ASCII//TRANSLIT"))
         sentence <- tolower(sentence)
+        
         wordList <- stringr::str_split(sentence, '\\s+')
+        
         words <- unlist(wordList)
         
         #build vector with matches between sentence and each category
         positive.matches <- match(words, positive_words)
         negative.matches <- match(words, negative_words)
+        
         # get the position of the matched term or NA
         # we just want a TRUE/FALSE
         positive_matches <- !is.na(positive.matches)
         negative_matches <- !is.na(negative.matches)
+        
         # final score
         score <- sum(positive_matches) - sum(negative_matches)
         
@@ -346,6 +358,8 @@ calculate_score <- function(text) {
         
         negation.matches <- match(words, negation)
         negation_matches <- !is.na(negation.matches)
+        
+        print (paste("Processing sentence:", sentence, sep=" "))
         
         
         if (sum(negation_matches) > 0)
@@ -368,6 +382,7 @@ calculate_score <- function(text) {
   positive_words <- tolower(positive_words)
   
   res <- getpolarity(text, negative_words, positive_words)
+
   return (res)
 }
 
@@ -448,10 +463,10 @@ calculate_total_presence_sentiment <- function(text) {
   
   score_array <- array(0, dim = c(2, 6))
   score_array[1, 1] <- 'Sarcasm'
-  score_array[1, 2] <- 'Neutral'
-  score_array[1, 3] <- 'Negative'
-  score_array[1, 4] <- 'Positive'
-  score_array[1, 5] <- 'Very Negative'
+  score_array[1, 2] <- 'Negative'
+  score_array[1, 3] <- 'Very Negative'
+  score_array[1, 4] <- 'Neutral'
+  score_array[1, 5] <- 'Positive'
   score_array[1, 6] <- 'Very Positive'
   
   for (i in 1:length(res))
@@ -462,21 +477,21 @@ calculate_total_presence_sentiment <- function(text) {
     }
     else if (res[i] == 0)
     {
-      score_array[2, 2] <- as.numeric(score_array[2, 2]) + 1
+      score_array[2, 4] <- as.numeric(score_array[2, 4]) + 1
       
     }
     else if (res[i] == -1) {
-      score_array[2, 3] <- as.numeric(score_array[2, 3]) + 1
+      score_array[2, 2] <- as.numeric(score_array[2, 2]) + 1
     }
     else if (res[i] == 1) {
-      score_array[2, 4] <- as.numeric(score_array[2, 4]) + 1
+      score_array[2, 5] <- as.numeric(score_array[2, 5]) + 1
     }
     else if (res[i] > 1) {
       score_array[2, 6] <- as.numeric(score_array[2, 6]) + 1
     }
     
     else{
-      score_array[2, 5] <- as.numeric(score_array[2, 5]) + 1
+      score_array[2, 3] <- as.numeric(score_array[2, 3]) + 1
       
     }
     

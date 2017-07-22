@@ -13,7 +13,7 @@ calculate_score(text)
 A vector containing polarity of each sentence.
 }
 \description{
-This function loads text and calculates score of each sentence on basis 
+This function loads text and calculates score of each sentence on basis
 of presence of words of positive and negative sentiment, presence of negation,
 and checking for sarcasm. 0 indicates neutral sentiment. Positive value indicates
 positive sentiment. Negative value indicates negative sentiment. 99 indicates

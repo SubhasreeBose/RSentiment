@@ -14,7 +14,7 @@ A vector containing sentiment of each sentence.
 }
 \description{
 This function loads text and calculates sentiment of each sentence. It classifies
-sentences into 6 categories: Positive, Negative, Very Positive, Very Negative 
+sentences into 6 categories: Positive, Negative, Very Positive, Very Negative
 Sarcasm and Neutral.
 }
 \examples{

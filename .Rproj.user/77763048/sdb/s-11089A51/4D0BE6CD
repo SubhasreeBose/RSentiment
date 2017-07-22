@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "start.time <- Sys.time()\nresult<-calculate_score(movie_pang02$text)\nend.time <- Sys.time()\ntime.taken <- end.time - start.time\ntime.taken",
+    "created" : 1495909980943.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1612869124",
+    "id" : "4D0BE6CD",
+    "lastKnownWriteTime" : 30681223440629870,
+    "last_content_update" : 1495914791389,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

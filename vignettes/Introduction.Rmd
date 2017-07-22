@@ -13,13 +13,19 @@ This package will ease mining opinions or analysing positive or negative sentime
 
 ## Methods
 
-There are currently 3 methods in the package:
+There are currently 6 methods in the package:
 ```
 calculate_score: calculates score of a sentence or a collection of sentences as text.
 
 calculate_sentiment: classifies a sentence or a text into a sentiment category.
 
 calculate_total_presence_sentiment: calculates total number of sentences in each sentiment category.
+
+calculate_custom_score: calculates score of a sentence or a collection of sentences on basis of dictionary of positive and negative words supplied by user
+
+Calculate_custom_sentiment:classifies a sentence or a text into a sentiment category on basis of dictionary of positive and negative words supplied by user
+
+calculate_custom_total_presence_sentiment:alculates total number of sentences in each sentiment category on basis of dictionary of positive and negative words supplied by user
 ```
 
 ## Score Range

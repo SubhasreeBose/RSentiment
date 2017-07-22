@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#my code\npost= read.csv(\"E:/rs12.csv\", header = TRUE)\n\n#preparing data\nlibrary(stringr)\npost$Post = str_trim(post$Post)\npost = data.frame((post[1:10,2]))\nnames(post) = \"comments\"\npost$comments = as.data.frame(post$comments)\n\n#sentiment analysis\nlibrary(RSentiment)\ndf = calculate_sentiment(post$comments)",
+    "created" : 1499882924392.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3199831401",
+    "id" : "3D800658",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1500212713540,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

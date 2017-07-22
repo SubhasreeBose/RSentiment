@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#library(testthat)\nlibrary(RSentiment)\n\nexpect_list_equal<-function(t,s)\n{\n  if(length(setdiff(t,s))>0)\n    return(1)\n  else\n    return(0)\n}\n#test_check(\"RSentiment\")\ntest_that(\"calculate_score is score of sentences\", {\n  \n  \n  expect_equal(expect_list_equal(calculate_score(c(\"This is very good\",\"This is bad\")), c(2,-1)),0)\n  \n})\ntest_that(\"calculate_sentiment is sentiment of sentences\", {\n  \n  df<-data.frame(text=c(\"This is very good\",\"This is bad\"),sentiment=c(\"Very Positive\",\"Negative\"))\n  expect_equal(expect_list_equal(calculate_sentiment(c(\"This is very good\",\"This is bad\")), df),0)\n  \n})\ntest_that(\"calculate_total_prsence_sentiment is sentiment of sentences\", {\n  \n  score_array<-array(0,dim=c(2,6))\n score_array[1,1]<-'Sarcasm'\n   score_array[1,2]<-'Neutral'\n  score_array[1,3]<-'Negative'\n  score_array[1,4]<-'Positive'\n  score_array[1,5]<-'Very Negative'\n  score_array[1,6]<-'Very Positive'\n  score_array[2,1]<-0\n  score_array[2,2]<-0\n  score_array[2,3]<-1\n  score_array[2,4]<-0\n  score_array[2,5]<-0\n  score_array[2,6]<-1\n  expect_equal(expect_list_equal(calculate_total_presence_sentiment(c(\"This is very good\",\"This is bad\")), score_array),0)\n  \n})\ntest_that(\"calculate_custom_score is score of sentences\", {\n  \n  \n  expect_equal(expect_list_equal(calculate_custom_score(c(\"This is very good\",\"This is bad\"),c(\"good\"),c(\"bad\")), c(2,-1)),0)\n  \n})\n\ntest_that(\"calculate_custom_total_prsence_sentiment is sentiment of sentences\", {\n  \n  score_array<-array(0,dim=c(2,6))\n  score_array[1,1]<-'Sarcasm'\n  score_array[1,2]<-'Neutral'\n  score_array[1,3]<-'Negative'\n  score_array[1,4]<-'Positive'\n  score_array[1,5]<-'Very Negative'\n  score_array[1,6]<-'Very Positive'\n  score_array[2,1]<-0\n  score_array[2,2]<-0\n  score_array[2,3]<-1\n  score_array[2,4]<-0\n  score_array[2,5]<-0\n  score_array[2,6]<-1\n  expect_equal(expect_list_equal(calculate_custom_total_presence_sentiment(c(\"This is very good\",\"This is bad\"),c(\"good\"),c(\"bad\")), score_array),0)\n  \n})\ntest_that(\"calculate_custom_sentiment is sentiment of sentences\", {\n  \n  df<-data.frame(text=c(\"This is very good\",\"This is bad\"),sentiment=c(\"Very Positive\",\"Negative\"))\n  expect_equal(expect_list_equal(calculate_custom_sentiment(c(\"This is very good\",\"This is bad\"),c(\"good\"),c(\"bad\")), df),0)\n  \n})",
+    "created" : 1500704388051.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2709036578",
+    "id" : "69CF3D11",
+    "lastKnownWriteTime" : 1500704856,
+    "last_content_update" : 1500704856985,
+    "path" : "E:/R/My Packages/RSentiment/RSentiment/tests/testthat/testing.R",
+    "project_path" : "tests/testthat/testing.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
